@@ -1,9 +1,16 @@
 {
-  "name": "FTPModule",
+  "name": "ftpmodule",
   "version": "0.0.1",
   "description": "Node.js module used to calculate certain cardiac parameters and FTP zones, among others.",
   "main": "index.js",
   "author": "Diégo Stéphan Jeandon Rodríguez <diego.jeandon@gmail.com>",
   "license": "MIT",
-  "private": false
+  "private": false,
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  }
 }
