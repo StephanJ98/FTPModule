@@ -46,17 +46,17 @@ Module designed for the calculation of cardiac parameters and to have the minimu
       </code>
     </td>
     <td>
-      <code>
-      { 
-        "zone1": Number, 
-        "zone2": Number, 
-        "zone3": Number, 
-        "zone4": Number, 
-        "zone5": Number, 
-        "zone6": Number, 
-        "zone7": Number 
-      }
-    </code>
+    <pre lang="javascript">
+    {
+        "zone1": Number,
+        "zone2": Number,
+        "zone3": Number,
+        "zone4": Number,
+        "zone5": Number,
+        "zone6": Number,
+        "zone7": Number,
+    }
+    </pre>
     </td>
   </tr>
   
