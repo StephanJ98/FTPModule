@@ -59,5 +59,24 @@ Module designed for the calculation of cardiac parameters and to have the minimu
     </pre>
     </td>
   </tr>
+
+
+  <tr>
+    <td>
+      <code>
+        HeartRateExtractor
+      </code>
+    </td>
+    <td>
+      <code>
+        file: File GPX from Strava
+      </code>
+    </td>
+    <td>
+      <code>
+        ['Number','Number','Number','Number','Number','Number',...]
+      </code>
+    </td>
+  </tr>
   
 </table>
