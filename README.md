@@ -26,7 +26,9 @@ Module designed for the calculation of cardiac parameters and to have the minimu
       </code>
     </td>
     <td>
-      <code> Number </code>
+      <pre lang="javascript">
+        Number
+      </pre>
     </td>
   </tr>
   
@@ -73,9 +75,9 @@ Module designed for the calculation of cardiac parameters and to have the minimu
       </code>
     </td>
     <td>
-      <code>
-        ['Number','Number','Number','Number','Number','Number',...]
-      </code>
+    <pre lang="javascript">
+      ['Number','Number','Number','Number','Number','Number',...]
+    </pre>
     </td>
   </tr>
   
