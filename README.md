@@ -49,7 +49,7 @@ Module designed for the calculation of cardiac parameters and to have the minimu
     </td>
     <td>
     <pre lang="javascript">
-    {
+    Object: {
         "zone1": Number,
         "zone2": Number,
         "zone3": Number,
@@ -77,6 +77,69 @@ Module designed for the calculation of cardiac parameters and to have the minimu
     <td>
     <pre lang="javascript">
       ['Number','Number','Number','Number','Number','Number',...]
+    </pre>
+    </td>
+  </tr>
+
+
+  <tr>
+    <td>
+      <code>
+        FTPZone
+      </code>
+    </td>
+    <td>
+      <code>
+        age: Number
+      </code>
+      </br>
+      <code>
+        gender: {'m', 'f'}
+      </code>
+      </br>
+      <code>
+        heartRate: Number
+      </code>
+    </td>
+    <td>
+    <pre lang="javascript">
+      String: {zone1, zone2, zone3, zone4, zone5, zone6, zone7}
+    </pre>
+    </td>
+  </tr>
+
+
+
+  <tr>
+    <td>
+      <code>
+        FTPZonesPercentage
+      </code>
+    </td>
+    <td>
+      <code>
+        age: Number
+      </code>
+      </br>
+      <code>
+        gender: {'m', 'f'}
+      </code>
+      </br>
+      <code>
+        arr: Array of Numbers from HeartRateExtractor function
+      </code>
+    </td>
+    <td>
+    <pre lang="javascript">
+      Object: {
+        z1: Percentage,
+        z2: Percentage,
+        z3: Percentage,
+        z4: Percentage,
+        z5: Percentage,
+        z6: Percentage,
+        z7: Percentage
+    }
     </pre>
     </td>
   </tr>
