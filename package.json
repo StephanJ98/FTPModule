@@ -16,5 +16,8 @@
   "scripts": {
     "dev": "nodemon index.js",
     "start": "node index.js"
+  },
+  "dependencies": {
+    "xml-js": "^1.6.11"
   }
 }

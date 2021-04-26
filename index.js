@@ -22,3 +22,21 @@ exports.FTPZones = (age, gender) => {
     }
     return zones
 }
+
+exports.HeartRateExtractor = (file) => {
+    var convert = require('xml-js');
+    let oneLine = ''
+
+    try {
+        file.split(/\r?\n/).forEach((line) => {
+            oneLine = oneLine + line
+        });
+        var xml = oneLine.replace(/\s\s+/g, '');
+        var result = JSON.parse(convert.xml2json(xml, { compact: true, spaces: 4 }))
+        let hr = []
+        result.gpx.trk.trkseg.trkpt.forEach(elem => hr.push(elem.extensions['gpxtpx:TrackPointExtension']['gpxtpx:hr']._text))
+        return hr
+    } catch (err) {
+        console.error(err);
+    }
+}
