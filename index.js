@@ -10,20 +10,20 @@ exports.TheoricalMaxHeartRate = (age, gender) => {
 }
 
 exports.HeartRateExtractor = (file) => {
-    var convert = require('xml-js');
-    let oneLine = ''
-
     try {
-        file.split(/\r?\n/).forEach((line) => {
-            oneLine = oneLine + line
-        });
-        var xml = oneLine.replace(/\s\s+/g, '');
-        var result = JSON.parse(convert.xml2json(xml, { compact: true, spaces: 4 }))
-        let hr = []
-        result.gpx.trk.trkseg.trkpt.forEach(elem => hr.push(elem.extensions['gpxtpx:TrackPointExtension']['gpxtpx:hr']._text))
-        return hr
-    } catch (err) {
-        console.error(err);
+        const fitDecoder = require('fit-decoder')
+        const data = (file).buffer
+        const json = fitDecoder.parseRecords(fitDecoder.fit2json(data))
+        const hrArray = fitDecoder.getRecordFieldValue(json, 'record', 'heart_rate')
+
+        let arr = []
+        hrArray.forEach(elem => {
+            if (elem != undefined) arr.push(elem)
+        })
+
+        return arr
+    } catch (error) {
+        console.log(error)
     }
 }
 

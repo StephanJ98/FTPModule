@@ -6,7 +6,7 @@ Module designed for the calculation of cardiac parameters and to have the minimu
 |---|---|---|
 | `TheoricalMaxHeartRate`  | `age: Number` `gender: {'m', 'f'}`  | `Number`  |
 |  `LTHRZones` | `age: Number` `gender: {'m', 'f'}` `sport: {'c', 'r'}`  | `Object: {"zone1": Number,"zone2": Number,"zone3": Number,"zone4": Number,"zone5a": Number,"zone5b": Number,"zone5c": Number,}`  |
-| `HeartRateExtractor`  | `file: GPX file from Strava`  | `Array: ['Number', 'Number', 'Number', 'Number', 'Number', 'Number']`  |
+| `HeartRateExtractor`  | `file: FIT file`  | `Array: ['Number', 'Number', 'Number', 'Number', 'Number', 'Number']`  |
 | `LTHRZone`  | `age: Number` `gender: {'m', 'f'}` `heartRate: Number` `sport: {'c', 'r'}`  | `String: {zone1, zone2, zone3, zone4, zone5a, zone5b, zone5c}`  |
 | `LTHRZonesPercentage`  | `age: Number` `gender: {'m', 'f'}` `sport: {'c', 'r'}` `arr: Array of Numbers from HeartRateExtractor function` | `Object: { z1: Percentage, z2: Percentage, z3: Percentage, z4: Percentage, z5a: Percentage, z5b: Percentage, z5c: Percentage }`  |
 
