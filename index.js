@@ -12,13 +12,13 @@ exports.TheoricalMaxHeartRate = (age, gender) => {
 exports.FTPZones = (age, gender) => {
     let maxHeartRate = this.TheoricalMaxHeartRate(age, gender)
     let zones = {
-        "zone1": (maxHeartRate * 0.75).toFixed(0),
-        "zone2": (maxHeartRate * 0.85).toFixed(0),
-        "zone3": (maxHeartRate * 0.92).toFixed(0),
-        "zone4": (maxHeartRate * 0.96).toFixed(0),
-        "zone5": (maxHeartRate * 1.05).toFixed(0),
-        "zone6": (maxHeartRate * 1.2).toFixed(0),
-        "zone7": (maxHeartRate * 1.5).toFixed(0),
+        "zone1": (maxHeartRate * 0.81).toFixed(0),
+        "zone2": (maxHeartRate * 0.89).toFixed(0),
+        "zone3": (maxHeartRate * 0.93).toFixed(0),
+        "zone4": (maxHeartRate * 0.99).toFixed(0),
+        "zone5": (maxHeartRate * 1.02).toFixed(0),
+        "zone6": (maxHeartRate * 1.06).toFixed(0),
+        "zone7": (maxHeartRate * 1.2).toFixed(0),
     }
     return zones
 }
@@ -43,19 +43,19 @@ exports.HeartRateExtractor = (file) => {
 
 exports.FTPZone = (age, gender, heartRate) => {
     let maxHeartRate = this.TheoricalMaxHeartRate(age, gender)
-    if (heartRate <= (maxHeartRate * 0.75)) {
+    if (heartRate < (maxHeartRate * 0.81)) {
         return 'zone1'
-    } else if ((heartRate > (maxHeartRate * 0.75)) && (heartRate <= (maxHeartRate * 0.85))) {
+    } else if ((heartRate >= (maxHeartRate * 0.81)) && (heartRate <= (maxHeartRate * 0.89))) {
         return 'zone2'
-    } else if ((heartRate > (maxHeartRate * 0.85)) && (heartRate <= (maxHeartRate * 0.92))) {
+    } else if ((heartRate > (maxHeartRate * 0.89)) && (heartRate <= (maxHeartRate * 0.93))) {
         return 'zone3'
-    } else if ((heartRate > (maxHeartRate * 0.92)) && (heartRate <= (maxHeartRate * 0.96))) {
+    } else if ((heartRate > (maxHeartRate * 0.93)) && (heartRate <= (maxHeartRate * 0.99))) {
         return 'zone4'
-    } else if ((heartRate > (maxHeartRate * 0.96)) && (heartRate <= (maxHeartRate * 1.05))) {
+    } else if ((heartRate > (maxHeartRate * 0.99)) && (heartRate <= (maxHeartRate * 1.02))) {
         return 'zone5'
-    } else if ((heartRate > (maxHeartRate * 1.05)) && (heartRate <= (maxHeartRate * 1.2))) {
+    } else if ((heartRate > (maxHeartRate * 1.02)) && (heartRate <= (maxHeartRate * 1.06))) {
         return 'zone6'
-    } else if ((heartRate > (maxHeartRate * 1.2))) {
+    } else if ((heartRate > (maxHeartRate * 1.06))) {
         return 'zone7'
     }
 }
