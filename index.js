@@ -27,7 +27,7 @@ exports.HeartRateExtractor = (file) => {
     }
 }
 
-exports.FTHRZones = (age, gender, sport) => {
+exports.LTHRZones = (age, gender, sport) => {
     let maxHeartRate = this.TheoricalMaxHeartRate(age, gender)
     if (String(sport).toLocaleLowerCase() === 'c') {
         return {
@@ -55,7 +55,7 @@ exports.FTHRZones = (age, gender, sport) => {
     }
 }
 
-exports.FTHRZone = (age, gender, heartRate, sport) => {
+exports.LTHRZone = (age, gender, heartRate, sport) => {
     let maxHeartRate = this.TheoricalMaxHeartRate(age, gender)
     if (String(sport).toLocaleLowerCase() === 'c') {
         if (heartRate < (maxHeartRate * 0.81)) {
@@ -95,7 +95,7 @@ exports.FTHRZone = (age, gender, heartRate, sport) => {
     }
 }
 
-exports.FTHRZonesPercentage = (age, gender, sport, arr) => {
+exports.LTHRZonesPercentage = (age, gender, sport, arr) => {
     let zones = {
         z1: 0,
         z2: 0,
@@ -107,7 +107,7 @@ exports.FTHRZonesPercentage = (age, gender, sport, arr) => {
     }
     let count = 0
     arr.forEach(elem => {
-        zone = this.FTHRZone(age, gender, elem, sport)
+        zone = this.LTHRZone(age, gender, elem, sport)
         switch (zone) {
             case 'zone1':
                 zones.z1 = zones.z1 + 1

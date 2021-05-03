@@ -1,33 +1,33 @@
-# fthrmodule
+# lthrmodule
 ***
 Module designed for the calculation of cardiac parameters and to have the minimum of dependencies with other modules and to be as fast and light as possible.
 
 | Function  |  Parameters |  Return |
 |---|---|---|
 | `TheoricalMaxHeartRate`  | `age: Number` `gender: {'m', 'f'}`  | `Number`  |
-|  `FTHRZones` | `age: Number` `gender: {'m', 'f'}` `sport: {'c', 'r'}`  | `Object: {"zone1": Number,"zone2": Number,"zone3": Number,"zone4": Number,"zone5a": Number,"zone5b": Number,"zone5c": Number,}`  |
+|  `LTHRZones` | `age: Number` `gender: {'m', 'f'}` `sport: {'c', 'r'}`  | `Object: {"zone1": Number,"zone2": Number,"zone3": Number,"zone4": Number,"zone5a": Number,"zone5b": Number,"zone5c": Number,}`  |
 | `HeartRateExtractor`  | `file: GPX file from Strava`  | `Array: ['Number', 'Number', 'Number', 'Number', 'Number', 'Number']`  |
-| `FTHRZone`  | `age: Number` `gender: {'m', 'f'}` `heartRate: Number` `sport: {'c', 'r'}`  | `String: {zone1, zone2, zone3, zone4, zone5a, zone5b, zone5c}`  |
-| `FTHRZonesPercentage`  | `age: Number` `gender: {'m', 'f'}` `sport: {'c', 'r'}` `arr: Array of Numbers from HeartRateExtractor function` | `Object: { z1: Percentage, z2: Percentage, z3: Percentage, z4: Percentage, z5a: Percentage, z5b: Percentage, z5c: Percentage }`  |
+| `LTHRZone`  | `age: Number` `gender: {'m', 'f'}` `heartRate: Number` `sport: {'c', 'r'}`  | `String: {zone1, zone2, zone3, zone4, zone5a, zone5b, zone5c}`  |
+| `LTHRZonesPercentage`  | `age: Number` `gender: {'m', 'f'}` `sport: {'c', 'r'}` `arr: Array of Numbers from HeartRateExtractor function` | `Object: { z1: Percentage, z2: Percentage, z3: Percentage, z4: Percentage, z5a: Percentage, z5b: Percentage, z5c: Percentage }`  |
 
 ***
 ## Instalation
 
-- NPM: `npm i fthrmodule`
-- Yarn: `yarn add fthrmodule`
+- NPM: `npm i lthrmodule`
+- Yarn: `yarn add lthrmodule`
 ***
 
 ## How to Use
 - `TheoricalMaxHeartRate`:
 ```javascript
-const { TheoricalMaxHeartRate } = require('fthrmodule')
+const { TheoricalMaxHeartRate } = require('lthrmodule')
 console.log(TheoricalMaxHeartRate(23, 'm'))
 // Should return 197
 ```
-- `FTHRZones`:
+- `LTHRZones`:
 ```javascript
-const { FTHRZones } = require('fthrmodule')
-console.log(FTHRZones(23, 'm'))
+const { LTHRZones } = require('lthrmodule')
+console.log(LTHRZones(23, 'm'))
 /* Should return {
         zone1: '148',
         zone2: '167',
@@ -41,23 +41,23 @@ console.log(FTHRZones(23, 'm'))
 - `HeartRateExtractor`:
 ```javascript
 const fs = require('fs')
-const { HeartRateExtractor } = require('fthrmodule')
+const { HeartRateExtractor } = require('lthrmodule')
 const data = fs.readFileSync('./file.gpx', 'UTF-8');
 console.log(HeartRateExtractor(data))
 // Should return a JSON array of number 
 ```
-- `FTHRZone`:
+- `LTHRZone`:
 ```javascript
-const { FTHRZone } = require('fthrmodule')
-console.log(FTHRZone(23, 'm', 184))
+const { LTHRZone } = require('lthrmodule')
+console.log(LTHRZone(23, 'm', 184))
 // Should return zone4
 ```
-- `FTHRZonesPercentage`:
+- `LTHRZonesPercentage`:
 ```javascript
 const fs = require('fs')
-const { FTHRZonesPercentage, HeartRateExtractor } = require('fthrmodule')
+const { LTHRZonesPercentage, HeartRateExtractor } = require('lthrmodule')
 const data = fs.readFileSync('./file.gpx', 'UTF-8')
-console.log(FTHRZonesPercentage(23, 'm', HeartRateExtractor(data)))
+console.log(LTHRZonesPercentage(23, 'm', HeartRateExtractor(data)))
 /* Should return {
   z1: '55.27',
   z2: '33.97',
