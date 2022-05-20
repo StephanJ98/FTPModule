@@ -153,3 +153,34 @@ exports.LTHRZonesPercentage = (age, gender, sport, arr) => {
         z5c: ((zones.z5c / count) * 100).toFixed(2)
     }
 }
+
+
+exports.SpeedExtractor = (file) => {
+    try {
+        const fitDecoder = require('fit-decoder')
+        const data = file.buffer
+        const json = fitDecoder.parseRecords(fitDecoder.fit2json(data))
+        const array = fitDecoder.getRecordFieldValue(json, 'record', 'speed')
+
+        let arr = []
+        array.forEach(elem => {
+            if (elem != undefined) arr.push(Number((elem * 3.87).toFixed(1)))
+        })
+
+        return arr
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+
+/** Data that can be extracted
+ *
+ *  position_lat: 43.15689,-8.672544
+    position_long: -8.672544,
+    enhanced_altitude: 36.89,
+    speed: 0.085,
+    gps_accuracy: 0.03,
+    timestamp: 2022-05-19T14:29:52.000Z,
+    heart_rate: 150
+ */

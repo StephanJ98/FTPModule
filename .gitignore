@@ -139,4 +139,7 @@ dist/
 tmp/
 temp/
 
+# Test data
+*.fit
+
 # End of https://www.toptal.com/developers/gitignore/api/node,git
