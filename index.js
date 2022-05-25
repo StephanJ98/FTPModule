@@ -51,7 +51,7 @@ exports.LTHRZones = (age, gender, sport) => {
         }
     } else {
         console.log('Error: Sport not found.')
-        console.log('Sports available are [c] for cycling and [r] for running.')
+        console.log('Sports available are [c] for cycling or [r] for running.')
     }
 }
 
