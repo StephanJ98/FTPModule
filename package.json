@@ -9,7 +9,6 @@
     "url": "https://github.com/StephanJ98/LTHRModule"
   },
   "license": "MIT",
-  "private": false,
   "devDependencies": {
     "nodemon": "^2.0.7"
   },
@@ -18,7 +17,7 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "fit-decoder": "^1.0.5",
-    "node-fetch": "2"
-  }
+    "fit-decoder": "^1.0.5"
+  },
+  "packageManager": "yarn@3.2.1"
 }
