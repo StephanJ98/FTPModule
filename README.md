@@ -9,7 +9,7 @@ Module designed for the calculation of cardiac parameters and to have the minimu
 | `HeartRateExtractor`  | `file: FIT file`  | `Array: ['Number', 'Number', 'Number', 'Number', 'Number', 'Number']`  |
 | `SpeedExtractor`  | `file: FIT file`  | `Array: ['Number', 'Number', 'Number', 'Number', 'Number', 'Number']`  |
 | `LTHRZone`  | `age: Number` `gender: {'m', 'f'}` `heartRate: Number` `sport: {'c', 'r'}`  | `String: {zone1, zone2, zone3, zone4, zone5}`  |
-| `LTHRZonesPercentage`  | `age: Number` `gender: {'m', 'f'}` `sport: {'c', 'r'}` `arr: Array of Numbers from HeartRateExtractor function` | `Object: { z1: Percentage, z2: Percentage, z3: Percentage, z4: Percentage, z5a: Percentage, z5b: Percentage, z5c: Percentage }`  |
+| `LTHRZonesPercentage`  | `age: Number` `gender: {'m', 'f'}` `sport: {'c', 'r'}` `arr: Array of Numbers from HeartRateExtractor function` | `Object: { z1: Percentage, z2: Percentage, z3: Percentage, z4: Percentage, z5: Percentage }`  |
 
 ***
 ## Instalation 

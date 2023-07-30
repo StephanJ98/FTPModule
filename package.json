@@ -1,6 +1,6 @@
 {
   "name": "lthrmodule",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Node.js module used to calculate certain cardiac parameters and LTHR zones, among others.",
   "main": "index.js",
   "author": "StephanJ98",
