@@ -5,10 +5,10 @@ Module designed for the calculation of cardiac parameters and to have the minimu
 | Function  |  Parameters |  Return |
 |---|---|---|
 | `TheoricalMaxHeartRate`  | `age: Number` `gender: {'m', 'f'}`  | `Number`  |
-|  `LTHRZones` | `age: Number` `gender: {'m', 'f'}` `sport: {'c', 'r'}`  | `Object: {"zone1": Number,"zone2": Number,"zone3": Number,"zone4": Number,"zone5a": Number,"zone5b": Number,"zone5c": Number,}`  |
+|  `LTHRZones` | `age: Number` `gender: {'m', 'f'}` `sport: {'c', 'r'}`  | `Object: {"zone1": Number,"zone2": Number,"zone3": Number,"zone4": Number,"zone5": Number}`  |
 | `HeartRateExtractor`  | `file: FIT file`  | `Array: ['Number', 'Number', 'Number', 'Number', 'Number', 'Number']`  |
 | `SpeedExtractor`  | `file: FIT file`  | `Array: ['Number', 'Number', 'Number', 'Number', 'Number', 'Number']`  |
-| `LTHRZone`  | `age: Number` `gender: {'m', 'f'}` `heartRate: Number` `sport: {'c', 'r'}`  | `String: {zone1, zone2, zone3, zone4, zone5a, zone5b, zone5c}`  |
+| `LTHRZone`  | `age: Number` `gender: {'m', 'f'}` `heartRate: Number` `sport: {'c', 'r'}`  | `String: {zone1, zone2, zone3, zone4, zone5}`  |
 | `LTHRZonesPercentage`  | `age: Number` `gender: {'m', 'f'}` `sport: {'c', 'r'}` `arr: Array of Numbers from HeartRateExtractor function` | `Object: { z1: Percentage, z2: Percentage, z3: Percentage, z4: Percentage, z5a: Percentage, z5b: Percentage, z5c: Percentage }`  |
 
 ***
@@ -16,6 +16,7 @@ Module designed for the calculation of cardiac parameters and to have the minimu
 
 - NPM: `npm i lthrmodule`
 - Yarn: `yarn add lthrmodule`
+- PNPM: `pnpm add lthrmodule`
 ***
 
 ## How to Use
@@ -29,15 +30,6 @@ console.log(TheoricalMaxHeartRate(23, 'm'))
 ```javascript
 const { LTHRZones } = require('lthrmodule')
 console.log(LTHRZones(23, 'm'))
-/* Should return {
-        zone1: '148',
-        zone2: '167',
-        zone3: '181',
-        zone4: '189',
-        zone5a: '207',
-        zone5b: '236',
-        zone5c: '296'
-    } */
 ```
 - `HeartRateExtractor`: Returns an array of numbers with the heart rate for each iteration of time.
 ```javascript
@@ -67,15 +59,7 @@ const fs = require('fs')
 const { LTHRZonesPercentage, HeartRateExtractor } = require('lthrmodule')
 const data = fs.readFileSync('./file.fit', 'UTF-8')
 console.log(LTHRZonesPercentage(23, 'm', HeartRateExtractor(data)))
-/* Should return {
-  z1: '55.27',
-  z2: '33.97',
-  z3: '9.52', 
-  z4: '1.11', 
-  z5a: '0.13', 
-  z5b: '0.00', 
-  z5c: '0.00'  
-} */
+
 ```
 ***
 
