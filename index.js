@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SpeedExtractor = exports.LTHRZonesPercentage = exports.LTHRZone = exports.LTHRZones = exports.HeartRateExtractor = exports.TheoricalMaxHeartRate = void 0;
-var TheoricalMaxHeartRate = function (age, gender) {
+const TheoricalMaxHeartRate = (age, gender) => {
     switch (String(gender).toLocaleLowerCase()) {
         case 'm':
             return 220 - age;
@@ -12,26 +12,26 @@ var TheoricalMaxHeartRate = function (age, gender) {
     }
 };
 exports.TheoricalMaxHeartRate = TheoricalMaxHeartRate;
-var HeartRateExtractor = function (file) {
+const HeartRateExtractor = (file) => {
     try {
-        var fitDecoder = require('fit-decoder');
-        var data = (file).buffer;
-        var json = fitDecoder.parseRecords(fitDecoder.fit2json(data));
-        var hrArray = fitDecoder.getRecordFieldValue(json, 'record', 'heart_rate');
-        var arr_1 = [];
-        hrArray.forEach(function (elem) {
+        const fitDecoder = require('fit-decoder');
+        const data = (file).buffer;
+        const json = fitDecoder.parseRecords(fitDecoder.fit2json(data));
+        const hrArray = fitDecoder.getRecordFieldValue(json, 'record', 'heart_rate');
+        let arr = [];
+        hrArray.forEach((elem) => {
             if (elem != undefined)
-                arr_1.push(elem);
+                arr.push(elem);
         });
-        return arr_1;
+        return arr;
     }
     catch (error) {
         console.log(error);
     }
 };
 exports.HeartRateExtractor = HeartRateExtractor;
-var LTHRZones = function (age, gender, sport) {
-    var maxHeartRate = (0, exports.TheoricalMaxHeartRate)(age, gender);
+const LTHRZones = (age, gender, sport) => {
+    let maxHeartRate = (0, exports.TheoricalMaxHeartRate)(age, gender);
     if (String(sport).toLocaleLowerCase() === 'c') {
         return {
             "zone1": (maxHeartRate * 0.56).toFixed(0),
@@ -56,8 +56,8 @@ var LTHRZones = function (age, gender, sport) {
     }
 };
 exports.LTHRZones = LTHRZones;
-var LTHRZone = function (age, gender, heartRate, sport) {
-    var maxHeartRate = (0, exports.TheoricalMaxHeartRate)(age, gender);
+const LTHRZone = (age, gender, heartRate, sport) => {
+    let maxHeartRate = (0, exports.TheoricalMaxHeartRate)(age, gender);
     if (String(sport).toLocaleLowerCase() === 'c') {
         if (heartRate < (maxHeartRate * 0.56)) {
             return 'zone1';
@@ -98,17 +98,17 @@ var LTHRZone = function (age, gender, heartRate, sport) {
     }
 };
 exports.LTHRZone = LTHRZone;
-var LTHRZonesPercentage = function (age, gender, sport, arr) {
-    var zones = {
+const LTHRZonesPercentage = (age, gender, sport, arr) => {
+    let zones = {
         z1: 0,
         z2: 0,
         z3: 0,
         z4: 0,
         z5: 0
     };
-    var count = 0;
-    arr.forEach(function (elem) {
-        var zone = (0, exports.LTHRZone)(age, gender, elem, sport);
+    let count = 0;
+    arr.forEach((elem) => {
+        let zone = (0, exports.LTHRZone)(age, gender, elem, sport);
         switch (zone) {
             case 'zone1':
                 zones.z1 = zones.z1 + 1;
@@ -144,18 +144,18 @@ var LTHRZonesPercentage = function (age, gender, sport, arr) {
     };
 };
 exports.LTHRZonesPercentage = LTHRZonesPercentage;
-var SpeedExtractor = function (file) {
+const SpeedExtractor = (file) => {
     try {
-        var fitDecoder = require('fit-decoder');
-        var data = file.buffer;
-        var json = fitDecoder.parseRecords(fitDecoder.fit2json(data));
-        var array = fitDecoder.getRecordFieldValue(json, 'record', 'speed');
-        var arr_2 = [];
-        array.forEach(function (elem) {
+        const fitDecoder = require('fit-decoder');
+        const data = file.buffer;
+        const json = fitDecoder.parseRecords(fitDecoder.fit2json(data));
+        const array = fitDecoder.getRecordFieldValue(json, 'record', 'speed');
+        const arr = [];
+        array.forEach((elem) => {
             if (elem !== undefined)
-                arr_2.push(Number((elem * 3.87).toFixed(1)));
+                arr.push(Number((elem * 3.87).toFixed(1)));
         });
-        return arr_2;
+        return arr;
     }
     catch (error) {
         console.log(error);
