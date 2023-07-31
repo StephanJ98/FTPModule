@@ -1,6 +1,6 @@
 {
   "name": "lthrmodule",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "Node.js module used to calculate certain cardiac parameters and LTHR zones, among others.",
   "main": "index.js",
   "author": "StephanJ98",
@@ -10,14 +10,17 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "nodemon": "^2.0.7"
+    "@types/node": "^20.4.5",
+    "nodemon": "^3.0.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6"
   },
   "scripts": {
     "dev": "nodemon index.js",
-    "start": "node index.js"
+    "start": "node index.js",
+    "compile": "tsc index.ts"
   },
   "dependencies": {
     "fit-decoder": "^1.0.5"
-  },
-  "packageManager": "yarn@3.2.1"
+  }
 }
