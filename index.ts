@@ -9,21 +9,23 @@ export const TheoricalMaxHeartRate = (age: number, gender: any) => {
     }
 }
 
-export const HeartRateExtractor = (file: any) => {
+export const HeartRateExtractor = async (contenido: string) => {
     try {
         const fitDecoder = require('fit-decoder')
-        const data = (file).buffer
-        const json = fitDecoder.parseRecords(fitDecoder.fit2json(data))
-        const hrArray = fitDecoder.getRecordFieldValue(json, 'record', 'heart_rate')
-
-        let arr: any[] = []
-        hrArray.forEach((elem: undefined) => {
-            if (elem != undefined) arr.push(elem)
+        const data = new TextEncoder().encode(contenido)
+        
+        const json = fitDecoder.parseRecords(fitDecoder.fit2json(data));
+        const hrArray = fitDecoder.getRecordFieldValue(json, 'record', 'heart_rate');
+        let arr: number[] = [];
+        hrArray.forEach((elem: number | undefined) => {
+            if (elem != undefined)
+                arr.push(elem);
         })
-
-        return arr
-    } catch (error) {
-        console.log(error)
+        
+        return arr;
+    }
+    catch (error) {
+        console.log(error);
     }
 }
 
@@ -149,3 +151,15 @@ export const SpeedExtractor = (file: { buffer: any }): number[] => {
         return []
     }
 }
+
+// Informations Recuperables
+// data: {
+//     timestamp: 2023-07-26T08:07:02.000Z,
+//     altitude: 34.86,
+//     cadence: 0,
+//     distance: 0,
+//     heart_rate: 91,
+//     grade: 0,
+//     speed: 0.001,
+//     temperature: 20
+//   }
