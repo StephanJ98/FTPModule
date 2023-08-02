@@ -14,7 +14,7 @@ export const HeartRateExtractor = async (contenido: string) => {
         const fitDecoder = require('fit-decoder')
         const data = new TextEncoder().encode(contenido)
         
-        const json = fitDecoder.parseRecords(fitDecoder.fit2json(data));
+        const json = fitDecoder.parseRecords(fitDecoder.fit2json(data.buffer));
         const hrArray = fitDecoder.getRecordFieldValue(json, 'record', 'heart_rate');
         let arr: number[] = [];
         hrArray.forEach((elem: number | undefined) => {

@@ -54,7 +54,7 @@ var HeartRateExtractor = function (contenido) { return __awaiter(void 0, void 0,
         try {
             fitDecoder = require('fit-decoder');
             data = new TextEncoder().encode(contenido);
-            json = fitDecoder.parseRecords(fitDecoder.fit2json(data));
+            json = fitDecoder.parseRecords(fitDecoder.fit2json(data.buffer));
             hrArray = fitDecoder.getRecordFieldValue(json, 'record', 'heart_rate');
             arr_1 = [];
             hrArray.forEach(function (elem) {
